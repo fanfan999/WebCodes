@@ -72,6 +72,9 @@ public class LoginUser_PrepareStatement {
             return rs.next();
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            //释放资源
+            JdbcUtils.close(ps, conn,rs);
         }
 
         return flag;
