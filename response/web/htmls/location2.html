@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>相对路径案例</title>
+</head>
+<body>
+<h1>相对路径举例</h1>
+
+<p>
+    当前资源: location2.html
+    当前资源路径: http://localhost:8080/response/htmls/location2.html
+</p>
+
+<p>
+    目标资源: responseServlet2
+    当前资源路径: http://localhost:8080/response/responseServlet2
+</p>
+
+<p>
+    通过比较我们发现,当前路径和目标路径不在同一个虚拟目录下,
+    可以理解为responseServlet2的资源目录在location2.html的资源目录的后退一级下
+    所以访问目标资源可以理解为访问当前虚拟目录下后退一级的虚拟目录下的的responseServlet2资源
+    即href="../responseServlet2",同时这其中的`../`是不可以省略的.
+</p>
+
+<a href="../responseServlet2">
+    访问ResponseServlet2
+</a>
+
+<h1>
+    绝对路径
+</h1>
+<a href="/response/responseServlet2">
+    访问ResponseServlet2
+</a>
+</body>
+</html>
