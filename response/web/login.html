@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+    /*
+    * 分析:
+    *   点击超链接或者图片换一张
+    *   1.给图片或超链接绑定单击时间
+    *   重新设置图片的src值
+    * */
+    window.onload = function () {
+        //获取图片对象
+        var img = document.getElementById("checkCode");
+        //绑定单击事件
+        img.onclick = function () {
+            //加时间戳,保证浏览器不会缓存,每次都可以请求到servlet
+            var date = new Date().getTime();
+            img.src = "/response/responseServlet5?"+date;
+        }
+
+        //获取图片对象
+        var a = document.getElementById("change");
+        //绑定单击事件
+        a.onclick = function () {
+            //加时间戳,保证浏览器不会缓存,每次都可以请求到servlet
+            a.src = "/response/responseServlet5?"+date;
+        }
+    }
+</script>
+<head>
+    <meta charset="UTF-8">
+    <title>点击图片换图案例</title>
+</head>
+<body>
+<img src="/response/responseServlet5" id="checkCode">
+<a href="" id="change">看不清,换一张</a>
+</body>
+</html>
