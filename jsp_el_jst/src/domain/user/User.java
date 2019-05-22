@@ -16,6 +16,10 @@ public class User {
         this.age = age;
         this.birthday = date;
     }
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 
     /**
      * 逻辑视图
@@ -47,6 +51,14 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
     @Override
