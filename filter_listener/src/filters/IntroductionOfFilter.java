@@ -18,7 +18,7 @@ public class IntroductionOfFilter implements javax.servlet.Filter {
         System.out.println("filter快速入门的destroy方法被执行了!!");
     }
 
-    public void doFilter(javax.servlet.ServletRequest req, javax.servlet.ServletResponse resp, javax.servlet.FilterChain chain) throws javax.servlet.ServletException, IOException {
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws javax.servlet.ServletException, IOException {
         System.out.println("filter快速入门的doFilter方法被执行了!!");
 
         //要执行下面这条语句,才表示我放行,即让index.jsp的内容显示出来
