@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--让spring去读取我们的配置文件db.properties-->
+    <!--注意这里的classpath:就表示位置是在src下,也就是类路径下,不加也可以,默认就是在类路径下-->
+    <context:property-placeholder location="classpath:db.properties"></context:property-placeholder>
+    <!--配置c3p0的dataSource对象-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${driverClass}"></property>
+        <property name="jdbcUrl" value="${jdbcUrl}"></property>
+        <property name="user" value="${user}"></property>
+        <property name="password" value="${password}"></property>
+    </bean>
+
+    <!--配置dao-->
+    <bean id="userDao" class="example5.dao.UserDao">
+        <!--不需要配置jdbctemplate了,只需要配置数据源就可以了-->
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+</beans>
