@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace写的是接口的名称,写上之后就不用写实现类了-->
+<mapper namespace="com.ctgu.dao.StudentDao">
+
+
+    <!--新增-->
+    <insert id="insertStudent" parameterType="com.ctgu.bean.Student">
+        insert into student(name, age, address) values(#{name}, #{age}, #{address})
+
+        <selectKey resultType="int" keyProperty="id" order="AFTER">
+            select @@identity
+        </selectKey>
+    </insert>
+
+    <!--删除-->
+    <delete id="deleteStudent" parameterType="java.lang.Integer">
+        delete from student where id = #{id};
+    </delete>
+
+    <!--修改-->
+    <update id="updateStudent">
+        update student set name = #{name}, age=#{age} where id=#{id}
+    </update>
+
+    <!--查询返回list结果集-->
+    <!--注意这里的返回结果类型是一条数据的结果类型(即Student),不是最终的返回类型(即list)-->
+    <select id="selectAllStudent" resultType="com.ctgu.bean.Student">
+        select * from student
+    </select>
+
+    <!--查询单个对象-->
+    <select id="selectOneStudent" resultType="com.ctgu.bean.Student" parameterType="java.lang.Integer">
+        select * from student where id = 27
+    </select>
+</mapper>
