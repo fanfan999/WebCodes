@@ -1,0 +1,5 @@
+2019-08-01 13:34:54,866 DEBUG [main] (BaseJdbcLogger.java:143) - ==>  Preparing: select name,age,address from student where 1=1 and age >= ? 
+2019-08-01 13:34:54,949 DEBUG [main] (BaseJdbcLogger.java:143) - ==> Parameters: 10(Integer)
+2019-08-01 13:34:54,975 DEBUG [main] (BaseJdbcLogger.java:143) - <==      Total: 3
+2019-08-01 13:34:54,976 DEBUG [main] (JdbcTransaction.java:90) - Closing JDBC Connection [com.mysql.jdbc.JDBC4Connection@23bb8443]
+2019-08-01 13:34:54,977 DEBUG [main] (PooledDataSource.java:381) - Returned connection 599491651 to pool.

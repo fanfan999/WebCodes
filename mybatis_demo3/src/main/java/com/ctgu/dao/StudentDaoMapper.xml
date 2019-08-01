@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace写的是接口的名称,写上之后就不用写实现类了-->
+<mapper namespace="com.ctgu.dao.StudentDao">
+    
+    <!--查询-->
+    <!--可以根据姓名查询,也可以根据id查询,或者两个都有等等-->
+    <!--注意用if标签的时候,这里要有一个1=1,防止所有参数都没有的时候sql语句报错-->
+    <select id="selectif" resultType="com.ctgu.bean.Student">
+        select name,age,address from student
+        where 1=1
+        <if test="name != null and name != ''">
+          and name like '%' #{name} '%'
+        </if>
+        <if test="age >= 0">
+            and age >= #{age}
+        </if>
+    </select>
+
+</mapper>
